@@ -32,7 +32,7 @@ function Home() {
                 <h2 className="">Question Bank</h2>
             </div>
             <label className="lebel">
-                <button className="btn-lebel">YEAR: </button>
+                <button className="btn-lebel">YEAR </button>
 
                 <select
                     className="lebel-select custom-lebel"
@@ -52,7 +52,7 @@ function Home() {
                 </select>
             </label>
             <label className="lebel">
-                <button className="btn-lebel">SEMESTER: </button>
+                <button className="btn-lebel">SEMESTER </button>
 
                 <select
                     className="lebel-select custom-lebel"
@@ -71,7 +71,7 @@ function Home() {
                 </select>
             </label>
             <label className="lebel">
-                <button className="btn-lebel">DEPERMENT: </button>
+                <button className="btn-lebel">DEPERMENT </button>
 
                 <select
                     className="lebel-select custom-lebel"
@@ -93,19 +93,18 @@ function Home() {
                 </select>
             </label>
 
-            <div className="display">
+            {/* search button that invoke api func call */}
+            <button type="button" className="btn btn-primary btn-lg">Search</button>
+
+            <div className="">
                 <p>YEAR: {yr === "null" ? "" : yr}</p>
                 <p>DEPARTMENT: {dept === "null" ? "" : dept}</p>
                 <p>SEMESTER: {sem === "null" ? "" : sem}</p>
             </div>
-            {/* search button that invoke api func call */}
-            <button className="btn" onClick={haldleClick}>
-                Search
-            </button>
 
-            <button className="adv-btn" onClick={advclick}>
+            {/* <button className="adv-btn" onClick={advclick}>
                 Advance Search
-            </button>
+            </button> */}
         </div>
     );
 }

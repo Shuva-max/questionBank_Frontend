@@ -1,0 +1,15 @@
+*{
+    /* box-sizing: border-box; */
+    padding: 0px;
+    margin: 0px ;
+}
+body {
+    border: 1px solid black;
+    min-height: 100%;
+    width: 100%;
+    width: 100%;
+}
+#root {
+    width: 100%;
+    border: 1px solid red;
+  }

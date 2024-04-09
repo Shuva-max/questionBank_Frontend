@@ -1,0 +1,33 @@
+.logos{
+    justify-content: space-between;
+}
+
+.above-header {
+    background: #395995;
+    padding: 0px;
+    height: 35px;
+    max-width: 100vw;
+    padding-right: 10px;
+}
+
+#nitLogo {
+  width: 90%;
+  max-width: 270px;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* media quary */
+@media screen and (max-width: 300px){
+    #jisLogo {
+        display: none;
+    }
+}
