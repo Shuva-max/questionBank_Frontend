@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+.qnBank {
+    display: flex;
+    justify-content: center;
+}
+
+.lebel {
+    display:inline-flex;
+    margin: 70px;
+    text-align:center;
+    
+
+
+
+}
+
+.btn-lebel {
+    background-color: #395995;
+    color: white;
+    border: none;
+    padding: 10px;
+    
+    
+    width: 200px;
+    box-shadow: 3px 3px 10px 6px rgb(0, 0, 0, 0.06);
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.lebel-select  {
+    margin: 0px 0px 10px 10px;
+    padding: 5px;
+
+
+    /* display: none;
+        position: absolute;
+        */ background-color: #f9f9f9;
+        /* list-style: none; */
+        font-weight: 500;
+        padding: 10px;
+        margin: 0;
+        cursor: pointer;
+        width: 150px;
+        text-align: center;
+        box-shadow: 3px 3px 10px 6px rgb(0, 0, 0, 0.06);
+        border-radius: 5px;
+}
+
+
+
+
+.lebel-select li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    /* transition: all 0.2s; */
+}
+
+/* .lebel:hover .lebel-select {
+    display: block;
+} */
+
+.selection {
+    padding-top: 70px;
+    padding-left: 95px;
+}
+
+.main-heading {
+    color: black;
+    font-size: 32px;
+    text-align: left;
+    width: 100%;
+
+}
+
+
+.above-header {
+    background: #395995;
+    padding: 18px;
+    width: 100%;
+}
+
+
+
+.footer {
+    position: fixed;
+    background: #084c5c;
+    padding-bottom: 70px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+
+
+
+
+
+.all-over {
+    position: relative;
+    top: 30px;
+}
+
+
+/* normal search button */
+
+.btn {
+    background-color: #395995;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    left: 320px;
+    width: 150px;
+    top: -20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* advance search and button */
+
+.adv-search {
+    font-size: 20px;
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    left: 60px;
+    top: 80px;
+    line-height: 3;
+
+}
+
+
+.adv-btn {
+    background-color: #395995;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    left: 390px;
+    width: 185px;
+    top: 3px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.display{
+    position: relative;
+    left: 7%;
+    line-height: 2;
+}
