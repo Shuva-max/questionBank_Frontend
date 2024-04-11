@@ -6,12 +6,15 @@ import Result from "./Result";
 
 function Home() {
     const context = useContext(questionContext);
-    const { filter2 } = context;    //destructuring context
+    const { filter2, filter3 } = context;    //destructuring context
     // console.log(questions)
 
     const [yr, setYr] = useState("null");
     const [dept, setDept] = useState("null");
     const [sem, setSem] = useState("null");
+    const [extype, setExtype] = useState("null");
+
+    const [advsearch, setAdvsearch] = useState({sname:"", scode:""});
 
     const yrChange = (event) => {
         setYr(event.target.value);
@@ -22,13 +25,27 @@ function Home() {
     const semChange = (event) => {
         setSem(event.target.value);
     };
+    const exTypeChange = (event) => {
+        setExtype(event.target.value);
+    };
+    const advSearchChange = (e) => {
+        setAdvsearch({...advsearch, [e.target.name]:e.target.value});
+        console.log({advsearch, extype})
+    };
+
 
     const haldleClick = async () => {
         // alert("Search btn clicked");
         // api func call
         console.log("search btn clicked")
         console.log(dept, sem, yr)
-        const update = await filter2(dept, sem, yr);   //api call
+        let update = false;
+        if( dept!=='null' && sem!=='null' && yr!=='null' ) {
+            update = await filter2(dept, sem, yr);   //api call
+
+        }else {
+            alert("invalid input!!")
+        }
         if (update) {
             console.log("filtered successful")
         } else {
@@ -36,9 +53,21 @@ function Home() {
         }
     };
 
-    const haldleAdvSearchClick = () => {
-        alert("you clicked the btn");
+    const haldleAdvSearchClick = async () => {
+        console.log("you clicked the btn");
         // api func call
+        let update = false;
+        if( dept!=='null' && sem!=='null' && yr!=='null' && extype!=='null' ) {
+            update = await filter3(dept, sem, yr, extype, advsearch.scode, advsearch.sname);   //api call
+
+        }else {
+            alert("invalid input!!")
+        }
+        if (update) {
+            console.log("filtered successful")
+        } else {
+            console.log("filtered not successful")
+        }
     };
 
     return (
@@ -141,8 +170,8 @@ function Home() {
                         <label >
                             SUBJECT NAME
                         </label>
-                        <input
-                            name="subjectName"
+                        <input value={advsearch.sname} onChange={advSearchChange}
+                            name="sname"
                         />
                     </div>
 
@@ -151,9 +180,22 @@ function Home() {
                         <label >
                             SUBJECT CODE
                         </label>
-                        <input
-                            name="subjectCode"
+                        <input value={advsearch.scode} onChange={advSearchChange}
+                            name="scode"
                         />
+                    </div>
+                    <div className="subject-code adv-search">
+
+                        <label >
+                            Exam Type
+                        </label>
+                        <select name="extype" className="" value={extype} onChange={exTypeChange} >
+                            <option value="null">select</option>
+                            <option value="R">Regular</option>
+                            <option value="B">Backlog</option>
+                            <option value="L">Lataral</option>
+                            <option value="RETAKE">Retake</option>
+                        </select>
                     </div>
 
                     {/*Advance search button that invoke api func call */}

@@ -39,4 +39,4 @@ const QnItem = (props) => {
     )
 }
 
-export default QnItem
+export default QnItem;

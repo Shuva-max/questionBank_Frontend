@@ -66,6 +66,10 @@
     width: 90%;
     height: 33px;
 }
+.adv-search-section > div > select {
+    width: 90%;
+    height: 33px;
+}
 
 
 .latest-qn-section {

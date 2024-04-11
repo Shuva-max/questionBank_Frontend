@@ -1,0 +1,7 @@
+.latestpost-section {
+    margin-right: 5px;
+    /* gap: 2rem; */
+}
+.latestpost-section > .card-body > .card-text {
+    margin-bottom: 0px;
+}
