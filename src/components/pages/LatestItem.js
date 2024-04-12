@@ -3,7 +3,7 @@ import './latestItem.css';
 
 const LatestItem = (props) => {
     // destructuring props
-    const { sName, sCode, sType, eType, dLink, sem, yr, dept } = props;
+    const { sName, sCode, eType, dLink, sem, yr, dept } = props;
     const examType = (eType) => {
         if (eType === 'R' || eType === 'r') {
             return 'Regular'

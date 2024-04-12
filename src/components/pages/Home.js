@@ -42,6 +42,7 @@ function Home() {
     const haldleClick = async () => {
         // alert("Search btn clicked");
         // api func call
+
         console.log("search btn clicked");
         setBtndisable(true);
         console.log(dept, sem, yr)
@@ -58,7 +59,8 @@ function Home() {
         } else if (update === 'EMPTY') {
             // console.log("Search is not successful")
             showAlert(": Search Result is Empty", "info")
-        }else if( update === 'ERROR'){
+            alert("Search Result is Empty!!!")
+        } else if (update === 'ERROR') {
             showAlert(": Internal Error!!", "danger")
         }
         setBtndisable(false);
@@ -67,18 +69,24 @@ function Home() {
     const haldleAdvSearchClick = async () => {
         console.log("you clicked the btn");
         // api func call
+        setBtndisable(true)
         let update = false;
-        if ( sem !== 'null') {
+        if (sem !== 'null') {
             update = await filter3(dept, sem, yr, extype, advsearch.scode, advsearch.sname);   //api call
 
         } else {
             alert("invalid input!!")
         }
-        if (update) {
+        if (update === "OK") {
             console.log("filtered successful")
-        } else {
-            console.log("filtered not successful")
+        } else if (update === "EMPTY") {
+            console.log("no post found")
+            alert("no post found")
+            showAlert(": No Post Found!!!", "info")
+        } else if (update === "ERROR") {
+            showAlert(": Internal Error!!!", "warning")
         }
+        setBtndisable(false)
     };
 
     return (
@@ -86,10 +94,10 @@ function Home() {
 
             <div className="home-component">
 
-                    {/* Alert component */}
-                    <div className="alert-component">
-                        <Alert />
-                    </div>
+                {/* Alert component */}
+                <div className="alert-component">
+                    <Alert />
+                </div>
 
                 <div className="container">
 
@@ -124,7 +132,7 @@ function Home() {
                                         yr={yr}
                                         onChange={yrChange}
                                     >
-                                        <option value="null">select</option>
+                                        <option value="">select</option>
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
                                         <option value="2017">2017</option>
@@ -163,7 +171,7 @@ function Home() {
                                         dept={dept}
                                         onChange={deptChange}
                                     >
-                                        <option value="null">select</option>
+                                        <option value="">select</option>
                                         <option value="CE">CE</option>
                                         <option value="ME">ME</option>
                                         <option value="EE">EE</option>
@@ -224,7 +232,7 @@ function Home() {
 
                             {/*Advance search button that invoke api func call */}
                             <div className="adv-search-btn d-flex justify-content-center">
-                                <button onClick={haldleAdvSearchClick} type="button" className="btn btn-primary">Filter</button>
+                                <button disabled={btndisable} onClick={haldleAdvSearchClick} type="button" className="btn btn-primary">Filter</button>
                             </div>
 
                         </div>
