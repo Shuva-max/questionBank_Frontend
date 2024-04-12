@@ -4,7 +4,7 @@ import alertContext from './alertContext';
 
 const QuestionState = (props) => {
   
-  const host = "http://localhost:8000";
+  const host = "https://backend-qn.onrender.com";
   
   const [questions, setQuestions] = useState();
 
