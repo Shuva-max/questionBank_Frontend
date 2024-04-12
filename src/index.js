@@ -4,16 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import QuestionState from './components/context/QuestionState';
+import AlertState from './components/context/AlertState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <QuestionState>
+    <AlertState>
+      <QuestionState>
 
-      <App />
+        <App />
 
-    </QuestionState>
+      </QuestionState>
+    </AlertState>
 
   </React.StrictMode>
 );

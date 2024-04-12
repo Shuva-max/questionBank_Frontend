@@ -16,22 +16,24 @@ const LatestQn = () => {
     }
   }
 
+  
   useEffect(() => {
     console.log("useEffect runs")
     getPost();
-
+    
     // eslint-disable-next-line
   }, [])
 
   return (
     <>
 
-      <div id="scroll-container">
-        <div id="scroll-text">
-          <div className="d-flex scroll-item item">
+      <div className="scroller" id="scroller">
+        <div className="tag-list scroller_inner">
+          <div className="item">
+
             {latestpost && latestpost.map((e) => {
               return (
-                <div className="col-md-3 mb-3 mt-2" key={e._id}>
+                <div className="magic list" key={e._id}>
                   <LatestItem sName={e.Subject_Name}
                     sCode={e.Subject_Code}
                     dept={e.Dept_Name}
