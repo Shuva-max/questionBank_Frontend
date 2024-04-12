@@ -3,7 +3,7 @@ import './qnItem.css';
 
 const QnItem = (props) => {
     // destructuring props
-    const {sName, sCode, sType, eType, dLink, sem, yr, dept} = props;
+    const {sName, sCode, eType, dLink, sem, yr, dept} = props;
 
     // decoding for eType
     const examType = (eType)=> {

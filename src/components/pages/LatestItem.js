@@ -3,7 +3,7 @@ import './latestItem.css';
 
 const LatestItem = (props) => {
     // destructuring props
-    const { sName, sCode, sType, eType, dLink, sem, yr, dept } = props;
+    const { sName, sCode, eType, dLink, sem, yr, dept } = props;
     const examType = (eType) => {
         if (eType === 'R' || eType === 'r') {
             return 'Regular'
@@ -19,10 +19,10 @@ const LatestItem = (props) => {
     }
 
     return (
-        <div className="card latestpost-section">
+        <div className="card latestpost-section" style={{minWidth:'13vw'}}>
             <div className="card-body ">
                 
-                <h6 className="card-title position-relative"> {sName} <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{zIndex:'1'}}>
+                <h6 className="card-title position-relative" style={{marginBottom:'0px'}}> {sName} <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{zIndex:'1'}}>
                     latest
                 </span> </h6>
                 <p className="card-text"> {sCode} </p>

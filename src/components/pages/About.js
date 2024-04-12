@@ -1,16 +1,10 @@
 import React from 'react';
+import './about.css';
 
 function About() {
-    return(
-        <div className='container'>
-            <div className='card mt-4'>
-                <div className='card-body'>
-                    <h2>About us</h2>
-
-                </div>
-
-            </div>
-
+    return (
+        <div>
+            <h2>About Us</h2>
         </div>
     );
 }
