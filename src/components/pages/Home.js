@@ -20,6 +20,7 @@ function Home() {
 
     const [advsearch, setAdvsearch] = useState({ sname: "", scode: "" });
     const [btndisable, setBtndisable] = useState(false);
+    const [filterbtndisable, setFilterbtndisable] = useState(false);
 
     const yrChange = (event) => {
         setYr(event.target.value);
@@ -35,17 +36,23 @@ function Home() {
     };
     const advSearchChange = (e) => {
         setAdvsearch({ ...advsearch, [e.target.name]: e.target.value });
-        console.log({ advsearch, extype })
+        // console.log({ advsearch, extype })
     };
+
+    // auto scrolling effect
+    // Auto-scroll down 
+    function autoScrollDown() {
+        window.scrollBy(0, 500); // You can adjust the second parameter to control the speed of the scroll
+    }
 
 
     const haldleClick = async () => {
         // alert("Search btn clicked");
         // api func call
 
-        console.log("search btn clicked");
+        // console.log("search btn clicked");
         setBtndisable(true);
-        console.log(dept, sem, yr)
+        // console.log(dept, sem, yr)
         let update = 'fatch';
         if ((dept !== '' && sem !== 'null') || (yr !== '' && sem !== 'null') || (dept !== '' && sem !== 'null' && yr !== '')) {
             update = await filter2(dept, sem, yr);   //api call
@@ -56,6 +63,7 @@ function Home() {
 
         if (update === 'OK') {
             // console.log("Search is successful")
+            setTimeout(autoScrollDown, 1100);
         } else if (update === 'EMPTY') {
             // console.log("Search is not successful")
             showAlert(": Search Result is Empty", "info")
@@ -67,26 +75,27 @@ function Home() {
     };
 
     const haldleAdvSearchClick = async () => {
-        console.log("you clicked the btn");
+        // console.log("you clicked the btn");
         // api func call
-        setBtndisable(true)
+        setFilterbtndisable(true)
         let update = false;
-        if (sem !== 'null') {
+        if (yr !== '' && sem !== 'null') {
             update = await filter3(dept, sem, yr, extype, advsearch.scode, advsearch.sname);   //api call
 
         } else {
             alert("invalid input!!")
         }
         if (update === "OK") {
-            console.log("filtered successful")
+            // console.log("filtered successful")
+            setTimeout(autoScrollDown, 1100);
         } else if (update === "EMPTY") {
-            console.log("no post found")
+            // console.log("no post found")
             alert("no post found")
             showAlert(": No Post Found!!!", "info")
         } else if (update === "ERROR") {
             showAlert(": Internal Error!!!", "warning")
         }
-        setBtndisable(false)
+        setFilterbtndisable(false)
     };
 
     return (
@@ -102,7 +111,7 @@ function Home() {
                 <div className="container">
 
                     <div className="qnBank m-3">
-                        <h2 className="">Question Bank</h2>
+                        <h1 className="">Question Bank</h1>
                     </div>
 
                     {/* <div className="">
@@ -125,7 +134,7 @@ function Home() {
                         <div className="mt-4 search-section" >
                             <div className="d-flex search-items">
                                 <label className="lebel-tag">
-                                    YEAR
+                                    YEAR*
 
                                     <select
                                         className="lebel-select custom-lebel"
@@ -142,6 +151,7 @@ function Home() {
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
                                         <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
                                     </select>
                                 </label>
                                 <label className="lebel-tag">
@@ -164,7 +174,7 @@ function Home() {
                                     </select>
                                 </label>
                                 <label className="lebel-tag">
-                                    DEPARTEMNT
+                                    DEPARTEMNT*
 
                                     <select
                                         className="lebel-select custom-lebel"
@@ -176,20 +186,21 @@ function Home() {
                                         <option value="ME">ME</option>
                                         <option value="EE">EE</option>
                                         <option value="ECE">ECE</option>
-                                        <option value="EIE">EIE</option>
+                                        <option value="IT">IT</option>
                                         <option value="CSE">CSE</option>
                                         <option value="CST">CST</option>
-                                        <option value="IT">IT</option>
-                                        <option value="AIML">AIML</option>
                                         <option value="CSBS">CSBS</option>
+                                        <option value="AIML">AIML</option>
                                         <option value="CSDS">CSDS</option>
+                                        <option value="ECSE">ECSE</option>
+                                        <option value="EIE">EIE</option>
                                     </select>
                                 </label>
                             </div>
 
                             {/* search button that invoke api func call */}
                             <div className="d-flex search-btn">
-                                <button disabled={btndisable} onClick={haldleClick} type="button" className="btn btn-primary">Search</button>
+                                <button disabled={btndisable} onClick={haldleClick} type="button" className="common-btn btn btn-primary">Search</button>
                             </div>
                         </div>
 
@@ -199,7 +210,7 @@ function Home() {
                         <div className="adv-search-section mt-4" >
                             <div className="subject-name adv-search">
 
-                                <label >
+                                <label className="lebel-tag">
                                     SUBJECT NAME
                                 </label>
                                 <input value={advsearch.sname} onChange={advSearchChange}
@@ -209,7 +220,7 @@ function Home() {
 
                             <div className="subject-code adv-search">
 
-                                <label >
+                                <label className="lebel-tag">
                                     SUBJECT CODE
                                 </label>
                                 <input value={advsearch.scode} onChange={advSearchChange}
@@ -218,7 +229,7 @@ function Home() {
                             </div>
                             <div className="subject-code adv-search">
 
-                                <label >
+                                <label className="lebel-tag">
                                     Exam Type
                                 </label>
                                 <select name="extype" className="" value={extype} onChange={exTypeChange} >
@@ -232,7 +243,7 @@ function Home() {
 
                             {/*Advance search button that invoke api func call */}
                             <div className="adv-search-btn d-flex justify-content-center">
-                                <button disabled={btndisable} onClick={haldleAdvSearchClick} type="button" className="btn btn-primary">Filter</button>
+                                <button disabled={filterbtndisable} onClick={haldleAdvSearchClick} type="button" className="common-btn btn btn-primary">Filter</button>
                             </div>
 
                         </div>

@@ -7,6 +7,8 @@ const QuestionState = (props) => {
   const host = "https://backend-qn.onrender.com";
   
   const [questions, setQuestions] = useState();
+  const [latestq, setLatestq] = useState();
+  const [latestcnt, setLatestcnt] = useState(0);
 
   const alertC = useContext(alertContext);
   const {showAlert} = alertC;
@@ -19,13 +21,16 @@ const QuestionState = (props) => {
           "Content-Type": "application/json"
         }
       });
-      // return response.json(); // parses JSON response into native JavaScript objects
+      // parses JSON response into native JavaScript objects
       const json = await response.json();
       // console.log(json);
       if(json.status){
-        return json;
+        setLatestq(json.result);
+        setLatestcnt(1);
+        return {status: json.status}
       }else{
         // do nothing
+        setLatestcnt(0);
         return {status: false}
       }
     } catch (error) {
@@ -57,11 +62,12 @@ const QuestionState = (props) => {
           "Content-Type": "application/json"
         }
       });
-      // return response.json(); // parses JSON response into native JavaScript objects
+      // parses JSON response into native JavaScript objects
       const json = await response.json();
       // console.log(json);
       if(json.status === "OK"){
         setQuestions(json.result);
+        
       }else if(json.status === "EMPTY") {
         // console.log("no search conetent")
         // alert componrnt
@@ -89,7 +95,7 @@ const QuestionState = (props) => {
       let sn = (sname==='')?"":"=" + sname; 
       
       apiString=`${host}/qn/filter3?dept${d}&sem=${sem}&exam_type${xmt}&year${y}&subj${sn}&subjCode${sc}`;
-      console.log(apiString);
+      // console.log(apiString);
 
       const response = await fetch(apiString, {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -97,9 +103,9 @@ const QuestionState = (props) => {
           "Content-Type": "application/json"
         }
       });
-      // return response.json(); // parses JSON response into native JavaScript objects
+       // parses JSON response into native JavaScript objects
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       setQuestions(json.result);
       return json.status;
       
@@ -110,10 +116,10 @@ const QuestionState = (props) => {
   
   useEffect(()=>{
     // console.log("useEffect from qnState runs")
-  },[questions])
+  },[questions, latestq])
 
   return (
-    <questionContext.Provider value={{ filter2, questions, setQuestions, getLatestpost, filter3 }}>
+    <questionContext.Provider value={{ filter2, questions, setQuestions, getLatestpost, filter3, latestq, latestcnt }}>
       {props.children}
     </questionContext.Provider>
   )
