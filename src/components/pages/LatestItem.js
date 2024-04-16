@@ -30,7 +30,7 @@ const LatestItem = (props) => {
                 <p className="card-margin"> <span className="p-bold"> Department: </span> {dept} </p>
                 <p className="card-margin"> <span className="p-bold"> Semester: </span> {sem} </p>
                 <p className="card-margin"> <span className="p-bold"> Exam Type: </span> {examType(eType)} </p>
-                <a href={dLink} className="btn btn-primary btn-sm card-dn-btn">Download</a>
+                <a href={dLink} className="card-dn-btn btn btn-primary btn-sm">Download</a>
             </div>
         </div>
     )

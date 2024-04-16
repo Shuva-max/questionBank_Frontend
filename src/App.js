@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
-import './styleApp.css'
-import Footer from "./components/inc/Footer";
+import './styleApp.css';
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Navbar from "./components/inc/Navbar";
@@ -38,9 +37,6 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
-
-
-        <Footer />
 
       </Router>
     </>

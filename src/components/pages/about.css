@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }    
+}
+.about-proj-section{
+    font-family: "Poppins";
+    gap: 40px;
+}
+.proj-details > h1 {
+    margin-top: 100px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    padding-top: 90px;
+    font-size: 2.6rem;
+}
+.proj-details > p {
+    font-family: "Poppins";
+    font-weight: 500;
+}
+#sectionPic img {
+    /* border: 1px solid red; */
+    width: 100%;
+}
+.eachTeam > img {
+    width: 100%;
+}
+.eachTeam{
+    border: 2px solid rgb(176, 176, 176);
+    border-radius: 20px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.teamPic{
+    width: 50%;
+    margin: auto;
+}
+.eachTeam > .teamPic > img {
+    width: 100%;
+}
+.member-section > h1 {
+    font-weight: 600;
+    font-family: "Poppins";
+}
+.teamDesc {
+    font-weight: 600;
+    font-family: "Poppins";
+    margin: .5rem 1rem;
+}
+.all-member{
+    /* gap: 40px */
+    justify-content: space-around;
+    margin: 1.5rem 0px;
+}
+.col {
+    max-width: fit-content;
+}
+.teamSocialLink{
+    display: flex;
+    justify-content: center;
+    background-color: #0a0a25;
+    gap: 1rem;
+    padding: 3px 0px;
+}
+.teamSocialLink img {
+    cursor: pointer;
+
+}
+.member-section {
+    margin-top: 2rem;
+}
+
+
+
+
+@media only screen and (max-width: 998px)  {
+    #sectionPic > img {
+        display: none;
+    } 
+    .proj-details > h1 {
+        padding-top: 0px;
+    }
+    .teamPic {
+        width: 52%;
+    }
+
+}
+@media only screen and (max-width: 600px)  {
+    .teamPic > img {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 400px)  {
+    .all-member {
+        gap: 1rem;
+    }
+}
+#tagNiT {
+    color: #0a0a25;
+    font-weight: 600;
+}
