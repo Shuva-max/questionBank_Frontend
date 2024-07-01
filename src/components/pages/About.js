@@ -19,7 +19,7 @@ function About() {
 
                     <div className="proj-details col" >
                         <h1>Project: Question Bank</h1>
-                        <p> <span id='tagNiT'>NiT - Previoes Year Questions</span>, a question bank, a valuable tool for anyone seeking structured information on a particular topic. By taking specific arguments, it generates relevant results, offering a tailored experience to users. This versatility suggests that it is designed to accommodate a variety of needs and preferences, making it accessible and useful to a wide audience.</p>
+                        <p> <span id='tagNiT'>NiT - Previous Year Questions</span>, a question bank, a valuable tool for anyone seeking structured information on a particular topic. By taking specific arguments, it generates relevant results, offering a tailored experience to users. This versatility suggests that it is designed to accommodate a variety of needs and preferences, making it accessible and useful to a wide audience.</p>
                     </div>
 
                     <div id="sectionPic" className='col'>
