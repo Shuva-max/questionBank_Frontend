@@ -4,6 +4,7 @@ import Footer from '../inc/Footer';
 import hoverImage from '../images/my-question-bank.png';
 import member1 from '../images/member1.png'
 import member2 from '../images/member2.jpg'
+import member3 from '../images/member3.png'
 import facebookSvg from '../images/svg/fabook-icon-white.svg';
 import twitterSvg from '../images/svg/twitter-icon-white.svg';
 import linkedinSvg from '../images/svg/inkedin-icon-white.svg';
@@ -33,6 +34,7 @@ function About() {
                     <h1>Our Strong & Creative Team</h1>
 
                     <div className="row all-member">
+                        {/* member 1 */}
                         <div className="col">
 
                             <div className=" eachTeam">
@@ -41,10 +43,10 @@ function About() {
                                     <img src={member1} alt="member 1" className='' />
                                 </div>
                                 <div className="teamSocialLink">
-                                    <a href="https://www.facebook.com/shuva.paul.7902"> <img src={facebookSvg} alt="" /> </a>
+                                    <a  href="https://www.facebook.com/shuva.paul.7902"> <img src={facebookSvg} alt="" /> </a>
                                     <img src={twitterSvg} alt="" />
-                                    <a href="https://www.instagram.com/__shuv575/"> <img src={instaSvg} alt="" /> </a>
-                                    <a href="https://www.linkedin.com/in/shuva575"> <img src={linkedinSvg} alt="" /> </a>
+                                    <a  href="https://www.instagram.com/__shuv575/"> <img src={instaSvg} alt="" /> </a>
+                                    <a  href="https://www.linkedin.com/in/shuva575"> <img src={linkedinSvg} alt="" /> </a>
                                     <a href="mailto:shuva575paul@gmail.com"><img src={emailSvg} alt="" /></a> 
                                 </div>
 
@@ -55,6 +57,7 @@ function About() {
                             </div>
                         </div>
 
+                        {/* member 2 */}
                         <div className="col">
                             <div className=" eachTeam">
 
@@ -62,9 +65,9 @@ function About() {
                                     <img src={member2} alt="member 2" className='col' />
                                 </div>
                                 <div className="teamSocialLink">
-                                   <a href="https://www.facebook.com/lahasayantan91"> <img src={facebookSvg} alt="" /> </a>
+                                   <a  href="https://www.facebook.com/lahasayantan91"> <img src={facebookSvg} alt="" /> </a>
                                     <img src={twitterSvg} alt="" /> 
-                                   <a href="https://www.instagram.com/sayantan_laha/"> <img src={instaSvg} alt="" /> </a>
+                                   <a  href="https://www.instagram.com/sayantan_laha/"> <img src={instaSvg} alt="" /> </a>
                                     <img src={linkedinSvg} alt="" /> 
                                    <a href="mailto:sayantanlaha2022@gmail.com"> <img src={emailSvg} alt="" /> </a>
                                 </div>
@@ -72,6 +75,28 @@ function About() {
                                 <div className="teamDesc col">
                                     <h1 className="teamName">Sayantan Laha</h1>
                                     <p className="position">UX Designer | Database Manager</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* member 3 */}
+                        <div className="col">
+                            <div className=" eachTeam">
+
+                                <div className='teamPic'>
+                                    <img src={member3} alt="member 2" className='col' />
+                                </div>
+                                <div className="teamSocialLink">
+                                   <a  href="https://www.facebook.com/debjit.saha.9674?mibextid=ZbWKwL"> <img src={facebookSvg} alt="" /> </a>
+                                    <a  href="https://x.com/DEBWEB_official?t=HTu_mwc6wGswCYtP693MYA&s=09"> <img src={twitterSvg} alt="" /> </a> 
+                                   <a  href="https://www.instagram.com/debjit_saha_2?igsh=YzF0eWIyZWk2Mzc1"> <img src={instaSvg} alt="" /> </a>
+                                    <img src={linkedinSvg} alt="" /> 
+                                   <a href="mailto:sahadebjit357@gmail.com"> <img src={emailSvg} alt="" /> </a>
+                                </div>
+
+                                <div className="teamDesc col">
+                                    <h1 className="teamName">Debjit Saha</h1>
+                                    <p className="position">UX Designer & Developer </p>
                                 </div>
                             </div>
                         </div>
